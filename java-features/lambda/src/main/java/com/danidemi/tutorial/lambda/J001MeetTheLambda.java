@@ -4,7 +4,7 @@ package com.danidemi.tutorial.lambda;
  *
  * @author danidemi
  */
-public class LambdaTutorial {
+public class J001MeetTheLambda {
     
     static interface Sound {
         String play();
@@ -35,7 +35,7 @@ public class LambdaTutorial {
     }
 
     public static void main(String[] args) {
-        new LambdaTutorial().run();
+        new J001MeetTheLambda().run();
     }
     
 }
