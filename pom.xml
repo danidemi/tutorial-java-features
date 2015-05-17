@@ -9,6 +9,7 @@
         <module>lambda</module>
         <module>generics</module>
         <module>datetime</module>
+        <module>method-references</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
