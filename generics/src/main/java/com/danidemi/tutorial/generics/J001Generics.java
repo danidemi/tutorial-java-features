@@ -2,7 +2,6 @@ package com.danidemi.tutorial.generics;
 
 /**
  *
- * @author danidemi
  */
 public class J001Generics {
     
