@@ -2,9 +2,11 @@ package com.danidemi.tutorial.java.enumeration;
 
 import org.junit.Test;
 
+import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
-import static com.danidemi.tutorial.java.enumeration.EsotericEnumeration.XXX.*;
+import static java.util.Arrays.asList;
 
 public class EsotericEnumeration {
 
@@ -21,29 +23,36 @@ public class EsotericEnumeration {
         }
     };
 
-    enum XXX {
+    enum Tranformations implements Function<Double, Double> {
 
-        A(new Function<Double, Double>() {
+        DOUBLE(new Function<Double, Double>() {
             @Override
             public Double apply(Double aDouble) {
-                return null;
+                return aDouble * 2;
             }
         }),
-        B( x -> {return x * x;} );
+        SQUARE(x -> x * x );
 
 
+        private Function<Double, Double> function;
 
-        private Function<Double, Double> f;
+        Tranformations(Function<Double, Double> function){
+            this.function = function;
+        }
 
-        XXX(Function<Double, Double> f){
-            this.f = f;
+        @Override
+        public Double apply(Double aDouble) {
+            return function.apply(aDouble);
         }
     };
 
     @Test
     public void esotericEnumeration() {
 
-        XXX a = A;
+        List<Double> transformed = asList(12.3, 3.4)
+                .stream()
+                .map(Tranformations.DOUBLE)
+                .collect(Collectors.toList());
 
     }
 
